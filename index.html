@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>Lab de Web - Facebook - Shopping Cart</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="css/shop-item.css" rel="stylesheet">
+
+	<link rel="stylesheet" type="css/style.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar sticky-top navbar-expand-lg navbar-light" style="background-color: #D6EFFF;">
+		<div class="container" style="font-family: 'Poppins', sans-serif; font-size: 20px">
+			<a class="navbar-brand" href="home.html">Laboratorio de Web</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+						<a class="navbar-brand" href="index.html">
+							<img src="img/home.png" width="30" height="30" alt="Home">
+						</a>
+					</li>
+					<li class="nav-item" id="fb">
+						<a class="navbar-brand" href="#">
+							<img src="img/fb.png" width="30" height="30" onclick="logIn()" alt="Facebook Login">
+						</a>
+					</li>
+					<li class="nav-item" id="carrito">
+						<a class="navbar-brand" href="carrito.html">
+							<img src="img/cart.png" width="30" height="30" alt="Shopping Cart">
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Page Content -->
+	<div class="container" style="font-family: 'Roboto', sans-serif; font-size: 20px">
+
+		<div class="row">
+
+			<div class="col-lg-3">
+				<h1 class="my-4">Lista de objetos</h1>
+				<div class="list-group">
+					<a href="home.html" class="list-group-item list-group-item-dark active">Computadoras</a>
+					<a href="videojuegos.html" class="list-group-item list-group-item-dark">Video juegos</a>
+					<a href="camara.html" class="list-group-item list-group-item-dark">Fotografia</a>
+				</div>
+			</div>
+			<!-- /.col-lg-3 -->
+
+			<div class="col-lg-9">
+
+				<div class="card mt-4">
+					<img class="card-img-top img-fluid" src="img/image2.jpg" alt="">
+					<div class="card-body">
+						<h3 class="card-title">Macbook Air 13</h3>
+						<h4>$25,999.00</h4>
+						<p class="card-text">Con la MacBook Apple Air 13 pulgadas Intel Core i5 8 GB RAM 256 GB disco duro descubrirás todos los días la sofisticación perfecta y la máxima tecnología.</p>
+						<span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+						4.0 stars
+						<div class="text-center">
+							<a href="carrito.html" class="btn btn-outline-secondary" role="button">Comprar</a>
+						</div>
+					</div>
+				</div>
+				<!-- /.card -->
+
+				<div class="card card-outline-secondary my-4">
+					<div class="card-header">
+						Product Reviews
+					</div>
+					<div class="card-body">
+						<p>Llego antes de tiempo y en perfecto estado. La recomiendo 100% Para todos aquellos que tienen dudas pueden estar convencidos de que el producto es tal cual lo describen.</p>
+						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+						<hr>
+						<p>Él producto llegó en buenas condiciones y a tiempo. Una comora bien y sin problemas. Él producto es muy bueno y de alta calidad.</p>
+						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+						<hr>
+						<p>Excelente equipo. Después de 20 años de tener equipos IBM, Dell y Toshiba todos los días aprendo algo nuevo que puedo hacer con mi nueva Macbook.</p>
+						<small class="text-muted">Posted by Anonymous on 3/1/17</small>
+						<hr>
+					</div>
+				</div>
+				<!-- /.card -->
+
+			</div>
+			<!-- /.col-lg-9 -->
+
+		</div>
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5 sticky-bottom" style="background-color: #D6EFFF">
+		<div class="container">
+			<p class="m-0 text-center text-black">Copyright &copy; Lab de Web 2018</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!--SDK FB-->
+	<script>
+		function logIn(){
+			FB.login(function (response){
+				console.log(response);
+			})
+		}
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '257064708343207',
+      cookie     : true,  // enable cookies to allow the server to access 
+                          // the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+  });
+
+    // Now that we've initialized the JavaScript SDK, we call 
+    // FB.getLoginStatus().  This function gets the state of the
+    // person visiting this page and can return one of three states to
+    // the callback you provide.  They can be:
+    //
+    // 1. Logged into your app ('connected')
+    // 2. Logged into Facebook, but not your app ('not_authorized')
+    // 3. Not logged into Facebook and can't tell if they are logged into
+    //    your app or not.
+    //
+    // These three cases are handled in the callback function.
+
+    FB.getLoginStatus(function(response) {
+    	statusChangeCallback(response);
+    });
+
+};
+
+  // Load the SDK asynchronously
+  (function(d, s, id) {
+  	var js, fjs = d.getElementsByTagName(s)[0];
+  	if (d.getElementById(id)) return;
+  	js = d.createElement(s); js.id = id;
+  	js.src = "https://connect.facebook.net/en_US/sdk.js";
+  	fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+  	console.log('Welcome!  Fetching your information.... ');
+  	FB.api('/me', function(response) {
+  		console.log('Successful login for: ' + response.name);
+  		document.getElementById('status').innerHTML =
+  		'Thanks for logging in, ' + response.name + '!';
+  	});
+  }
+</script>
+
+</body>
+
+</html>
